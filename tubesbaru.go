@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-const nmax int = 9999
+const nmax int = 10
 
 type lapangan struct {
 	ID    int
@@ -31,17 +31,17 @@ type arlapangan [nmax]lapangan
 type arpenyewa [nmax]penyewa
 type arjadwal [nmax]jadwal
 
-func tambahLapangan(lapangan arlapangan, id int, nama string, harga float64, aktif bool) [nmax]lapangan {
+func tambahLapangan(l arlapangan, id int, nama string, harga float64, aktif bool) [nmax]lapangan {
 	lapanganBaru := lapangan{
 		ID:    id,
-		Nama:  nama,
-		Harga: harga,
-		Aktif: aktif,
+		nama:  nama,
+		harga: harga,
+		aktif: aktif,
 	}
 	for i := 0; i < nmax; i++ {
 		if lapangan[i].ID == 0 {
 			lapangan[i] = lapanganBaru
-			break
+
 		}
 	}
 	return lapangan
